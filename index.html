@@ -3,86 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldi Prasetya | Portofolio</title>
+    <title>Aldi Prasetya | Software engineer</title>
+
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
-            <a href="#" class="nav-logo">Aldi</a>
+            <a href="#" class="nav-logo">
+                <img src="images/logo.png" alt="Logo">
+            </a>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About me</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">About Me</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#" class="cta-button">Get started</a>
-        </nav>
+            <a href="assets/CV_Aldi.pdf" class="cta-button" download>DOWNLOAD CV</a>       
+         </nav>
     </header>
-    
+
     <main>
         <section id="hero">
-            <div class="hero-text">
-                <p class="hero-subtext">CURRENTLY AVAILABLE FOR FREELANCE WORK</p>
-                <h1>Software Developer</h1>
-                <h2>Tinggal di Indonesia</h2>
-            </div>
-            <a href="#projects" class="scroll-down-indicator">
-                <div class="arrow"></div>
-            </a>
-            <div class="hero-image-container">
-                <img src="images/your-hero-image.jpg" alt="Gambar Profil Anda">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h4>WELCOME TO MY WORLD</h4>
+                    <h1>Hi, I'm <span>Aldi Prasetya</span><br>a software engineer</h1>
+                    <p>A recent graduate with expertise in web and mobile development, competent in using Flutter to create cross-platform mobile apps and Laravel to develop reliable online applications.</p>
+                    
+                    <div class="hero-socials">
+                        <div class="social-group">
+                            <p>FIND WITH ME</p>
+                            <div class="icons">
+                                <a href="https://github.com/aldiprasetya00" target="_blank"><i class="fab fa-github"></i></a>                                
+                                <a href="https://www.instagram.com/prstya_aldi?igsh=NHMzcGFlb25paW5r"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="social-group">
+                            <p>BEST SKILL ON</p>
+                            <div class="icons">
+                                <a href="#"><i class="fab fa-laravel"></i></a>                                
+                                <a href="#"><i class="fab fa-android"></i></a> 
+                                <a href="#"><i class="fab fa-figma"></i></a>                           
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/logo.png" alt="Jone Lee">
+                </div>
             </div>
         </section>
 
-        <div class="scrolling-text-banner">
-            <div class="track">
-                <span>Feature work</span>
-                <span>Feature work</span>
-                <span>Feature work</span>
-                <span>Feature work</span>
-                <span>Feature work</span>
-                <span>Feature work</span>
-                <span>Feature work</span>
-                <span>Feature work</span>
+        <section id="services">
+            <div class="section-title-container">
+                <h4>FEATURES</h4>
+                <h2>What I Do</h2>
+            </div>
+        
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Fullstack Web Development</h3>
+                    <p>Developing reliable online applications from front-end to back-end logic using the Laravel framework.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h3>Mobile App Development</h3>
+                    <p>Competent in using Flutter to create cross-platform mobile applications with a focus on a clean interface.</p>
+                </div>
+        
+                <div class="service-card">
+                    <i class="fa-solid fa-object-group"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Translating UI/UX designs from Figma into functional and responsive interface code.</p>
+                </div>
+        
+                <div class="service-card">
+                    <i class="fa-solid fa-cube"></i>
+                    <h3>3D Assets</h3>
+                    <p>Possess creative design skills to create supporting 3D assets for various digital needs using Blender.</p>
+                </div>
+        
+                <div class="service-card">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Problem Solving</h3>
+                    <p>Identifying, troubleshooting, and resolving UI bugs and cross-browser compatibility issues to improve stability.</p>
+                </div>
+        
+                <div class="service-card">
+                    <i class="fa-solid fa-users"></i>
+                    <h3>Team Collaboration</h3>
+                    <p>Actively collaborating with back-end teams to integrate REST APIs and ensure seamless data flow.</p>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio">
+            <div class="section-title-container">
+                <h4>VISIT MY PORTFOLIO AND GIVE YOUR FEEDBACK</h4>
+                <h2>My Projects</h2>
+            </div>
+        
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="images/arjuna.png" alt="Percetakan Arjuna E-Commerce">
+                        <div class="overlay">
+                            <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-meta">
+                            <span class="category">E-COMMERCE WEBSITE</span>
+                        </div>
+                        <h3><a href="#">"Percetakan Arjuna" E-Commerce Website</a></h3>
+                    </div>
+                </div>
+        
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="images/inventori.png" alt="Inventory Management">
+                        <div class="overlay">
+                            <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-meta">
+                            <span class="category">WEB APPLICATION</span>
+                        </div>
+                        <h3><a href="#">Inventory Management System</a></h3>
+                    </div>
+                </div>
+        
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="images/bibliofind.png" alt="TeknoNews App">
+                        <div class="overlay">
+                            <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-meta">
+                            <span class="category">MOBILE APP</span>
+                        </div>
+                        <h3><a href="#">BiblioFind Mobile App</a></h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume">
+    <div class="section-title-container">
+        <h4>PROFESSIONAL JOURNEY</h4>
+        <h2>My Resume</h2>
+    </div>
+
+    <div class="resume-container">
+        <div class="resume-column">
+            <h3 class="column-title">Experience</h3>
+
+            <div class="resume-item">
+                <div class="year-node">2024</div>
+                <h4>Internship <span>PT Microdata Indonesia</span></h4>
+                <p>Translated UI/UX designs into responsive code for an Inventory Management app and collaborated with the back-end team to integrate REST APIs.</p>
+            </div>
+
+            <div class="resume-item">
+                <div class="year-node">2025</div>
+                <h4>Final Year Project <span>Teknokrat University</span></h4>
+                <p>Managed database architecture and developed server-side logic and REST APIs for a printing service e-commerce system.</p>
             </div>
         </div>
 
-        <section id="projects">
-            <h2 class="section-title">Proyek Saya</h2>
-            <div class="project-grid">
+        <div class="resume-column">
+            <h3 class="column-title">Education</h3>
+
+            <div class="resume-item">
+                <div class="year-node">2025</div>
+                <h4>Bachelor of Informatics <span>Universitas Teknokrat Indonesia</span></h4>
+                <p>Graduated with a GPA of 3.27/4.00, focusing on back-end development for the final project.</p>
+            </div>
+        </div>
+    </div>
+    </section>
+        <section id="certificates">
+            <div class="section-title-container">
+                <h4>VALIDATION OF MY SKILLS</h4>
+                <h2>My Certificates</h2>
+            </div>
         
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300.png/00bcd4/ffffff?text=Proyek+Satu" alt="Gambar Proyek 1">
-                    </div>
-                    <div class="project-content">
-                        <h3>asadasda</h3>
-                        <p>Deskripsi singkat tentang proyek ini. Teknologi yang digunakan, dan apa peran Anda dalam proyek tersebut.</p>
-                        <div class="project-links">
-                            <a href="#" target="_blank">Live Demo</a>
-                            <a href="#" target="_blank">Source Code</a>
-                        </div>
-                    </div>
+            <div class="certificates-container">
+                <div class="certificate-card">
+                    <a href="#" target="_blank"> <img src="images/magang.png" alt="Intern PT Microdata Indonesia">
+                    </a>
                 </div>
         
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300.png/2c3e50/ffffff?text=Proyek+Dua" alt="Gambar Proyek 2">
-                    </div>
-                    <div class="project-content">
-                        <h3>Nama Proyek Dua</h3>
-                        <p>Deskripsi singkat tentang proyek ini. Ini bisa jadi proyek klien, proyek pribadi, atau studi kasus.</p>
-                        <div class="project-links">
-                            <a href="#" target="_blank">Live Demo</a>
-                            <a href="#" target="_blank">Source Code</a>
-                        </div>
-                    </div>
+                <div class="certificate-card">
+                    <a href="assets/ALDI PRASETYA - Senior Game Developer.pdf" target="_blank">
+                        <img src="images/game.PNG" alt="Senior Game Developer">
+                    </a>
                 </div>
         
+                <div class="certificate-card">
+                    <a href="assets/ALDI PRASETYA - Basic Artificial Intelligence II.pdf" target="_blank">
+                        <img src="images/pakar.PNG" alt="Basic Artificial Intelligence II">
+                    </a>
+                </div>
+                
+                <div class="certificate-card">
+                    <a href="assets/ALDI PRASETYA - E-Commerce & E-bisnis Consultant.pdf" target="_blank">
+                        <img src="images/bisnis.PNG" alt="E-Commerce & E-bisnis Consultant">
+                    </a>
+                </div>
+                
                 </div>
         </section>
+        <section id="contact">
+            <div class="section-title-container">
+                <h4>CONTACT</h4>
+                <h2>Contact Me With Your Ideas</h2>
+            </div>
+        
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <img src="images/hero-photo.png" alt="Foto Kontak"> <h3>Aldi Prasetya</h3>
+                        <p>Junior software engineer</p>
+                        <p class="availability">I am available for new opportunities. Connect with me via whatsapp or social media.</p>
+                        <p class="details">Phone: <strong>+62 857 6675 0478</strong></p>
+                        <p class="details">Email: <strong>prasetyaaldi00@gmail.com</strong></p>
+                        
+                        <div class="social-group">
+                            <p>FIND WITH ME</p>
+                            <div class="icons">
+                                <a href="https://github.com/aldiprasetya00" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://www.instagram.com/prstya_aldi?igsh=NHMzcGFlb25paW5r"><i class="fab fa-instagram"></i></a>
+                                <a href="https://wa.me/6285766750478" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group-split">
+                            <input type="text" name="name" placeholder="YOUR NAME" required>
+                            <input type="text" name="phone" placeholder="PHONE NUMBER" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="EMAIL" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="SUBJECT" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="YOUR MESSAGE" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">SEND MESSAGE <i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
-    <script src="js/script.js"></script>
+    <footer>
+        <p>&copy; 2025. All rights reserved by Aldi Prasetya.</p>
+    </footer>
 </body>
 </html>
