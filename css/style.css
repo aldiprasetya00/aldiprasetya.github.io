@@ -1,12 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
 
-/* -- 1. VARIABEL & RESET -- */
+/* ===================================================
+   1. VARIABLES & GLOBAL STYLES
+   =================================================== */
 :root {
+    --color-primary: #ff014f;
+    
+    /* Dark Theme (Default) */
     --color-background: #191919;
     --color-card-bg: #202020;
     --color-text: #c4cfde;
-    --color-primary: #ff014f; /* Warna pink/magenta */
+    --color-heading: #ffffff;
     --color-light-gray: #333333;
+    --color-border: #333333;
+}
+
+body[data-theme="light"] {
+    /* Light Theme */
+    --color-background: #ecf0f3;
+    --color-card-bg: #ffffff;
+    --color-text: #3c3e41;
+    --color-heading: #1e2125;
+    --color-light-gray: #dce1e4;
+    --color-border: #ffffff;
 }
 
 * {
@@ -19,24 +35,51 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--color-background);
     color: var(--color-text);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 a {
     text-decoration: none;
+    color: var(--color-text);
 }
 
 ul {
     list-style: none;
 }
 
-/* -- 2. HEADER & NAVIGASI -- */
+/* ===================================================
+   2. REUSABLE COMPONENTS
+   =================================================== */
+.section-title-container {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title-container h4 {
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.section-title-container h2 {
+    color: var(--color-heading);
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+/* ===================================================
+   3. HEADER & NAVIGATION
+   =================================================== */
 .header {
     position: fixed;
     width: 100%;
     padding: 20px 50px;
     z-index: 100;
     background-color: var(--color-background);
-    border-bottom: 1px solid var(--color-light-gray);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.3s;
 }
 
 .navbar {
@@ -48,7 +91,7 @@ ul {
 }
 
 .nav-logo img {
-    max-height: 40px; /* Sesuaikan ukuran logo */
+    max-height: 40px;
 }
 
 .nav-menu {
@@ -62,13 +105,20 @@ ul {
     transition: color 0.3s ease;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover,
+.nav-menu a.active {
     color: var(--color-primary);
+}
+
+.nav-right-cluster {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 .cta-button {
     background-color: var(--color-primary);
-    color: white;
+    color: #ffffff; /* White is fine here as bg is always pink */
     padding: 12px 25px;
     border-radius: 5px;
     font-weight: 700;
@@ -79,17 +129,65 @@ ul {
     transform: translateY(-3px);
 }
 
-/* -- 3. HERO SECTION -- */
+/* Theme Toggle Switch */
+.theme-switcher {
+    position: relative;
+}
+
+.theme-switcher input[type="checkbox"] {
+    display: none;
+}
+
+.theme-switcher label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 55px;
+    height: 28px;
+    background-color: var(--color-light-gray);
+    border-radius: 50px;
+    padding: 5px;
+    position: relative;
+}
+
+.theme-switcher label::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color-background);
+    left: 4px;
+    transition: left 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-switcher input:checked + label::after {
+    left: 31px;
+}
+
+.theme-switcher i {
+    font-size: 14px;
+    color: var(--color-text);
+}
+
+.theme-switcher .fa-sun {
+    color: #f39c12;
+}
+
+/* ===================================================
+   4. HERO SECTION
+   =================================================== */
 #hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px; /* Ruang untuk header */
+    padding-top: 80px;
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1.5fr 1fr; /* Kolom kiri lebih besar */
+    grid-template-columns: 1.5fr 1fr;
     align-items: center;
     gap: 50px;
     max-width: 1800px;
@@ -109,6 +207,7 @@ ul {
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 30px;
+    color: var(--color-heading);
 }
 
 .hero-text h1 span {
@@ -154,67 +253,11 @@ ul {
     border-radius: 10px;
 }
 
-/* -- Responsif untuk layar kecil -- */
-@media (max-width: 1200px) {
-    .nav-menu {
-        display: none; /* Sembunyikan menu untuk versi mobile sederhana */
-    }
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .hero-image {
-        grid-row: 1; /* Pindahkan gambar ke atas pada layar kecil */
-        margin: 0 auto 40px auto;
-    }
-    .hero-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .hero-socials {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .header, .hero-content {
-        padding: 20px 25px;
-    }
-    #hero {
-        padding-top: 100px;
-    }
-    .hero-text h1 {
-        font-size: 3rem;
-    }
-    .hero-text p {
-        font-size: 1rem;
-    }
-}
-
-/* -- 4. SERVICES SECTION -- */
+/* ===================================================
+   5. SERVICES SECTION
+   =================================================== */
 #services {
     padding: 100px 50px;
-    background-color: var(--color-background);
-}
-
-.section-title-container {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title-container h4 {
-    color: var(--color-primary);
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-}
-
-.section-title-container h2 {
-    color: #fff;
-    font-size: 3.5rem;
-    font-weight: 800;
 }
 
 .services-grid {
@@ -229,13 +272,13 @@ ul {
     background-color: var(--color-card-bg);
     padding: 40px;
     border-radius: 10px;
-    border: 1px solid var(--color-light-gray);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    background-color: #2a2a2a;
 }
 
 .service-card i {
@@ -245,7 +288,7 @@ ul {
 }
 
 .service-card h3 {
-    color: #fff;
+    color: var(--color-heading);
     font-size: 1.5rem;
     margin-bottom: 20px;
     font-weight: 700;
@@ -256,26 +299,9 @@ ul {
     line-height: 1.8;
 }
 
-/* -- Responsif untuk Services Section -- */
-@media (max-width: 1200px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    #services {
-        padding: 80px 25px;
-    }
-    .section-title-container h2 {
-        font-size: 2.5rem;
-    }
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* -- 5. PORTFOLIO SECTION -- */
+/* ===================================================
+   6. PORTFOLIO SECTION
+   =================================================== */
 #portfolio {
     padding: 100px 50px;
 }
@@ -293,7 +319,8 @@ ul {
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease;
-    border: 1px solid var(--color-light-gray);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
 .portfolio-card:hover {
@@ -301,7 +328,7 @@ ul {
 }
 
 .portfolio-image {
-    position: relative; /* Kunci untuk overlay */
+    position: relative;
 }
 
 .portfolio-image img {
@@ -312,10 +339,9 @@ ul {
 }
 
 .portfolio-card:hover .portfolio-image img {
-    transform: scale(1.05); /* Efek zoom pada gambar */
+    transform: scale(1.05);
 }
 
-/* Overlay Effect */
 .portfolio-image .overlay {
     position: absolute;
     top: 0;
@@ -335,11 +361,11 @@ ul {
 }
 
 .overlay a {
-    color: white;
+    color: #ffffff;
     font-size: 1.5rem;
     padding: 15px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid #ffffff;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -347,7 +373,6 @@ ul {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
 }
-
 
 .portfolio-content {
     padding: 25px;
@@ -375,7 +400,7 @@ ul {
 }
 
 .portfolio-content h3 a {
-    color: #fff;
+    color: var(--color-heading);
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1.4;
@@ -386,42 +411,26 @@ ul {
     color: var(--color-primary);
 }
 
-/* -- Responsif untuk Portfolio Section -- */
-@media (max-width: 1200px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    #portfolio {
-        padding: 80px 25px;
-    }
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* -- 6. RESUME SECTION (TIMELINE STYLE) -- */
+/* ===================================================
+   7. RESUME SECTION (TIMELINE)
+   =================================================== */
 #resume {
     padding: 100px 50px;
-    background-color: var(--color-background);
 }
 
 .resume-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px; /* Jarak antar kolom */
+    gap: 50px;
     max-width: 1800px;
     margin: 50px auto 0 auto;
 }
 
 .resume-column {
     position: relative;
-    padding-left: 25px; /* Memberi ruang untuk garis timeline */
+    padding-left: 25px;
 }
 
-/* Garis vertikal timeline */
 .resume-column::before {
     content: '';
     position: absolute;
@@ -433,7 +442,7 @@ ul {
 }
 
 .column-title {
-    color: #fff;
+    color: var(--color-heading);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 40px;
@@ -441,28 +450,28 @@ ul {
 
 .resume-item {
     position: relative;
-    padding-left: 60px; /* Jarak dari garis timeline ke teks */
+    padding-left: 60px;
     margin-bottom: 40px;
 }
 
 .year-node {
     position: absolute;
-    left: -24px; /* (50px width / 2) - 1px agar pas di tengah garis */
+    left: -24px;
     top: 0;
     width: 50px;
     height: 50px;
-    background-color: #333333;
+    background-color: var(--color-light-gray);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: var(--color-heading);
     font-weight: 700;
     border: 2px solid var(--color-light-gray);
 }
 
 .resume-item h4 {
-    color: #fff;
+    color: var(--color-heading);
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 10px;
@@ -471,7 +480,7 @@ ul {
 .resume-item h4 span {
     color: var(--color-text);
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-left: 10px;
 }
 
@@ -480,42 +489,29 @@ ul {
     line-height: 1.8;
 }
 
-/* -- Responsif untuk Resume Section -- */
-@media (max-width: 992px) {
-    .resume-container {
-        grid-template-columns: 1fr;
-        gap: 80px; /* Beri jarak lebih saat menjadi satu kolom */
-    }
-}
-@media (max-width: 768px) {
-    #resume {
-        padding: 80px 25px;
-    }
-}
-/* -- 7. CERTIFICATES SECTION -- */
+/* ===================================================
+   8. CERTIFICATES SECTION
+   =================================================== */
 #certificates {
     padding: 100px 50px;
-    background-color: var(--color-background);
 }
 
 .certificates-container {
     display: grid;
-    grid-auto-flow: column; /* Membuat item berjajar horizontal */
-    grid-auto-columns: 24%; /* Setiap kolom lebarnya 24% dari container */
+    grid-auto-flow: column;
+    grid-auto-columns: 24%;
     gap: 20px;
     max-width: 1800px;
     margin: 50px auto 0 auto;
-    overflow-x: auto; /* Aktifkan scroll horizontal jika item melebihi container */
+    overflow-x: auto;
     padding: 20px;
-    
-    /* Menghilangkan scrollbar visual tapi tetap fungsional */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-.certificates-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
+.certificates-container::-webkit-scrollbar {
+    display: none;
+}
 
 .certificate-card {
     background-color: var(--color-card-bg);
@@ -524,20 +520,22 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--color-light-gray);
-    transition: transform 0.3s ease;
-    height: 180px; /* Atur tinggi kartu agar seragam */
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    height: 180px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
 .certificate-card:hover {
     transform: translateY(-5px);
+    border-color: var(--color-primary); 
 }
 
 .certificate-card img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Pastikan logo tidak terdistorsi */
-    filter: grayscale(100%); /* Membuat logo jadi abu-abu */
+    object-fit: contain;
+    filter: grayscale(100%);
     opacity: 0.7;
     transition: filter 0.3s ease, opacity 0.3s ease;
 }
@@ -547,36 +545,16 @@ ul {
     opacity: 1;
 }
 
-/* -- Responsif untuk Certificates Section -- */
-@media (max-width: 992px) {
-    .certificates-container {
-        grid-auto-columns: 31%;
-    }
-}
-
-@media (max-width: 768px) {
-    #certificates {
-        padding: 80px 25px;
-    }
-    .certificates-container {
-        grid-auto-columns: 45%;
-    }
-}
-
-@media (max-width: 480px) {
-    .certificates-container {
-        grid-auto-columns: 70%;
-    }
-}
-/* -- 8. CONTACT SECTION -- */
+/* ===================================================
+   9. CONTACT SECTION
+   =================================================== */
 #contact {
     padding: 100px 50px;
-    background-color: var(--color-background);
 }
 
 .contact-container {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Kolom kiri lebih kecil */
+    grid-template-columns: 1fr 2fr;
     gap: 50px;
     max-width: 1800px;
     margin: 50px auto 0 auto;
@@ -586,7 +564,8 @@ ul {
     background-color: var(--color-card-bg);
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid var(--color-light-gray);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
 .info-card img {
@@ -596,7 +575,7 @@ ul {
 }
 
 .info-card h3 {
-    color: #fff;
+    color: var(--color-heading);
     font-size: 1.8rem;
     font-weight: 700;
 }
@@ -615,11 +594,10 @@ ul {
 }
 
 .info-card .details strong {
-    color: #fff;
+    color: var(--color-heading);
     font-weight: 500;
 }
 
-/* Form Styling */
 .contact-form form {
     display: flex;
     flex-direction: column;
@@ -637,7 +615,7 @@ ul {
     width: 100%;
     padding: 15px;
     background-color: var(--color-card-bg);
-    border: 2px solid var(--color-light-gray);
+    border: 2px solid var(--color-border);
     border-radius: 5px;
     color: var(--color-text);
     font-family: 'Montserrat', sans-serif;
@@ -658,7 +636,7 @@ ul {
 
 .submit-button {
     background-color: var(--color-primary);
-    color: white;
+    color: #ffffff;
     padding: 18px 30px;
     border-radius: 5px;
     font-weight: 700;
@@ -673,8 +651,17 @@ ul {
     transform: translateY(-3px);
 }
 
+.contact-info .info-card img {
+    width: 200px;       /* Atur lebar gambar */
+    height: 250px;      /* Atur tinggi gambar */
+    object-fit: cover;  /* Memastikan gambar mengisi area tanpa distorsi */
+    margin: 0 auto 20px auto; /* Tengah, dengan jarak bawah 20px */
+    display: block;
+}
 
-/* -- 9. FOOTER -- */
+/* ===================================================
+   10. FOOTER
+   =================================================== */
 footer {
     padding: 30px;
     text-align: center;
@@ -682,17 +669,85 @@ footer {
     background-color: var(--color-background);
 }
 
-/* -- Responsif untuk Contact & Footer -- */
+/* ===================================================
+   11. RESPONSIVENESS (MEDIA QUERIES)
+   =================================================== */
+@media (max-width: 1200px) {
+    .nav-menu {
+        display: none;
+    }
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .certificates-container {
+        grid-auto-columns: 31%;
+    }
+}
+
 @media (max-width: 992px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-image {
+        grid-row: 1;
+        margin: 0 auto 40px auto;
+    }
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-socials {
+        justify-content: center;
+    }
+    .resume-container {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
     .contact-container {
         grid-template-columns: 1fr;
     }
 }
+
 @media (max-width: 768px) {
+    .header, .hero-content {
+        padding: 20px 25px;
+    }
+    #hero {
+        padding-top: 100px;
+    }
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+    .section-title-container h2 {
+        font-size: 2.5rem;
+    }
+    #services,
+    #portfolio,
+    #resume,
+    #certificates,
     #contact {
         padding: 80px 25px;
     }
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    .certificates-container {
+        grid-auto-columns: 45%;
+    }
     .form-group-split {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .certificates-container {
+        grid-auto-columns: 70%;
     }
 }
